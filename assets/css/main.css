@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto|Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Zeyada&display=swap');
 
 /* GERAL */
 html, body {    
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 * {
@@ -44,10 +44,15 @@ nav {
 
 .menu {
     height: 150px;
+    transition: all linear 300ms;
 }
 
 nav .logo img {
     width: 80px;
+}
+
+ul {
+    display: flex;
 }
 
 ul li {
@@ -86,7 +91,7 @@ li a {
 }
 
 .transition {
-    transition: all ease-in-out .3s;
+    transition: all linear 300ms;
 }
 
 /* DESTAQUE */
@@ -221,14 +226,36 @@ footer {
     display: none;
 }
 
+.mobile {
+    display: flex;
+}
+
 @media (max-width: 450px){
-    .mobile-none {
-        display: none;
+    body{
+        overflow-x: hidden;
     }
 
-    .mobile-menu {
-        display: block;
+    .mobile-menu  {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-right: 20px;
+    }
+
+    .menuIcon {
+        height: 3px;
+        width: 20px;
+        background-color: #fff;
+        border-radius: 30%;
+        margin: 3px;
+    }
+
+    .menuIconScroll {
+        background-color: #171717;
+    }
+
+    .mobile-none {
+        display: none;
     }
 
     .container {
@@ -239,12 +266,47 @@ footer {
         margin-left: 20px;
     }
 
-    ul.d-flex {
-        display: none;
+    ul {
+        /* display: none; */
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0px 20px 44px -12px rgba(130,130,130,0.35);
+        width: 70vw;
+        height: calc(100vh - 150px);
+        top: 100px;
+        right: 0;
+        transition: all .3s;
     }
+
+    /* ul.hide {
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+    } */
 
     ul li {
         height: 30px;
+        padding: 30px 0;
+    }
+
+    ul li a {
+        font-size: 18px;
+        font-weight: bold;
+        color: #171717;
+    }
+
+    .mobile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-menu img {
+        margin: 30px;
+        height: 20px;
+        width: 20px;
     }
 
     .destaque {
@@ -291,6 +353,16 @@ footer {
         width: auto;
         justify-content: center;
     }
+
+    .map-info-img {        
+        margin-right: 15px;
+    }
+
+    .map-info-img img{
+        object-fit: cover;
+        height: 15px;
+        width: 15px;
+    }
 }
 
 @media (min-width: 450px) and (max-width: 800px) {
@@ -320,7 +392,7 @@ footer {
     }
 
     .destaque {
-        margin-top: 70px;
+        margin-top: 20px;
     }
 
     h1.h1-destaque {
